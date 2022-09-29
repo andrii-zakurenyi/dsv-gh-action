@@ -21,7 +21,7 @@ jobs:
           setEnv: true
           retrieve: |
             [
-             {"secretPath": "ci:dsv-gh-action", "secretKey": "value1", "outputVariable": "RET_1"}
+             {"secretPath": "ci:dsv-gh-action", "secretKey": "value1"}
             ]
       - name: validate-first-value
         if: always()
