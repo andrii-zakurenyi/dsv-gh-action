@@ -13,12 +13,11 @@ jobs:
     timeout-minutes: 5
     steps:
       - id: dsv
-        uses: delineaxpm/dsv-github-action@main
+        uses: delineaxpm/dsv-github-action@v2.0.1
         with:
           domain: ${{ secrets.DSV_SERVER }}
           clientId: ${{ secrets.DSV_CLIENT_ID }}
           clientSecret: ${{ secrets.DSV_CLIENT_SECRET }}
-          setEnv: true
           retrieve: |
             [
              {"secretPath": "ci:dsv-gh-action", "secretKey": "value1", "outputVariable": "RET_1"},
@@ -27,5 +26,4 @@ jobs:
       - name: validate-first-value
         if: always()
         run: |
-          echo ${{ steps.dsv.outputs.RET_1 }}
           echo ${{ env.RET_1 }}
