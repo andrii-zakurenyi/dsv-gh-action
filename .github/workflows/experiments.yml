@@ -1,5 +1,5 @@
 ---
-name: exp
+name: experiments
 
 on:
   pull_request:
