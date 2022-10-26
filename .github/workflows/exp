@@ -1,0 +1,27 @@
+---
+name: exp
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    steps:
+      - name: experiments
+        run: |
+          echo "::debug My Debug message 1"
+          echo "::debug:: My Debug message 2"
+          echo "::debug::My Debug message 3"
+          echo "::info My Info message 1"
+          echo "::info:: My Info message 2"
+          echo "::info::My Info message 3"
+          echo "::warning My Warning message 1"
+          echo "::warning:: My Warning message 2"
+          echo "::warning::My Warning message 3"
+          echo "::error My Error message 1"
+          echo "::error:: My Error message 2"
+          echo "::error::My Error message 3"
