@@ -1,0 +1,28 @@
+---
+name: using v2.0.2 (bad auth)
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - id: dsv
+        uses: delineaxpm/dsv-github-action@v2.0.2
+        with:
+          domain: ${{ secrets.DSV_SERVER }}
+          clientId: ${{ secrets.DSV_CLIENT_ID }}
+          clientSecret: "not-secret-client-secret"
+          retrieve: |
+            [
+             {"secretPath": "ci:whatever", "secretKey": "value1", "outputVariable": "RET_1"}
+            ]
+      - name: validate-first-value
+        if: always()
+        run: |
+          echo ${{ env.RET_1 }}
