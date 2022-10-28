@@ -1,5 +1,5 @@
 ---
-name: using v2.0.2 (secret not found)
+name: using v2.0.2 (forbidden)
 
 on:
   pull_request:
