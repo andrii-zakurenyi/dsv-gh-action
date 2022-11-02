@@ -23,7 +23,13 @@ jobs:
              {"secretPath": "ci:dsv-gh-action", "secretKey": "value1", "outputVariable": "RET_1"},
              {"secretPath": "ci:dsv-gh-action", "secretKey": "value1", "outputVariable": "RET_2"}
             ]
-      - name: validate-first-value
+
+      - name: step2
         if: always()
         run: |
           echo ${{ env.RET_1 }}
+
+      - name: step3
+        if: always()
+        run: |
+          "This is a secret value you shouldn't echo 👉 ${{ env.RETURN_VALUE_1 }}"
