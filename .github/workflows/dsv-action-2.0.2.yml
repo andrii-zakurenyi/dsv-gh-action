@@ -12,8 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - id: dsv
-        uses: delineaxpm/dsv-github-action@v2.0.2
+      - uses: delineaxpm/dsv-github-action@v2.0.2
         with:
           domain: ${{ secrets.DSV_SERVER }}
           clientId: ${{ secrets.DSV_CLIENT_ID }}
